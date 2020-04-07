@@ -20,3 +20,5 @@ jobs:
           entrypoint: touch
           args: /github/home/testfile
       - run: find ${HOME}
+      - run: which ruby
+      - run: which bundle
