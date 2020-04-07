@@ -1,0 +1,19 @@
+name: Test Workflow
+
+on: push
+
+jobs:
+  test:
+    name: Attempt to use Ruby and Mono in the same context
+    runs-on: ubuntu-latest
+    container:
+      image: mono:6.8.0
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7.0'
+      - run: which mono
+      - run: which nuget
+      - run: which ruby
