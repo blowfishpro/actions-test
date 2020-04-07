@@ -17,3 +17,4 @@ jobs:
       - run: which mono
       - run: which nuget
       - run: which ruby
+      - run: which aws
