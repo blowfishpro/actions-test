@@ -14,7 +14,9 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7.0'
-      - run: which mono
-      - run: which nuget
-      - run: which ruby
-      - run: which aws
+      - run: find ${HOME}
+      - uses: docker://debian:latest
+        with:
+          entrypoint: touch
+          args: /github/home/testfile
+      - run: find ${HOME}
