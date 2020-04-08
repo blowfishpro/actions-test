@@ -17,8 +17,7 @@ jobs:
       - run: ruby --version
       - run: which bundle
       - run: ls -l $(which bundle)
-      - run: $(which bundle)
-      - run: bundle --version
+      - run: sh -c 'bundle --version 2>&1'
       - run: find ${HOME}
       - uses: docker://debian:latest
         with:
