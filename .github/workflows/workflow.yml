@@ -18,3 +18,4 @@ jobs:
       - run: mono --version
       - run: which nuget
       - run: which msbuild
+      - run: which unzip
