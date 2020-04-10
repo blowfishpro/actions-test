@@ -5,25 +5,18 @@ on: push
 jobs:
   test:
     name: Attempt to use Ruby and Mono in the same context
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     container:
-      image: mono:6.8.0
+      image: josephwong/ubuntu-mono:0.1_mono-6.8.0.105_bionic
 
     steps:
       - uses: actions/checkout@v2
+      - run: apt-get update
+      - run: apt-get install sudo
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7.0'
       - run: ruby --version
-      - run: which bundle
-      - run: ls -l $(which bundle)
-      - run: sh -c 'bundle --version 2>&1'
-      - run: find ${HOME}
-      - uses: docker://debian:latest
-        with:
-          entrypoint: touch
-          args: /github/home/testfile
-      - run: find ${HOME}
-      - run: which ruby
-      - run: which bundle
       - run: bundle --version
+      - run: mono --version
+      - run: which nuget
